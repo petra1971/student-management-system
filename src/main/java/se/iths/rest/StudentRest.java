@@ -32,31 +32,31 @@ public class StudentRest {
         return Response.ok(students).build();
     }
 
-    @Path("{id}")
-    @GET
-    public Response getStudentById(@PathParam("id") Long id) {
-        Student student = studentService.getStudentById(id);
-        return Response.ok(student).build();
-    }
-
-    @Path("{getbylastname}")
-    @GET
-    public Response getStudentByLastName(@QueryParam("lastName") String category) {
-        List<Student> students = studentService.getByLastName(lastName);
-        return Response.ok(students).build();
-    }
-
-    @Path("")
-    @PUT
-    public Response updateStudent(Student student) {
-        Student updatedStudent = studentService.updateStudent(student);
-        return Response.ok(updatedStudent).build();
-    }
-
-    @Path("{id}")
-    @DELETE
-    public Response deleteStudent(@PathParam("id") Long id) {
-        studentService.deleteStudent(id);
-        return Response.ok().build();
-    }
+//    @Path("{id}")
+//    @GET
+//    public Response getStudentById(@PathParam("id") Long id) {
+//        Student student = studentService.getStudentById(id);
+//        return Response.ok(student).build();
+//    }
+//
+//    @Path("{getbylastname}")
+//    @GET
+//    public Response getStudentByLastName(@QueryParam("lastName") String category) {
+//        List<Student> students = studentService.getByLastName(lastName);
+//        return Response.ok(students).build();
+//    }
+//
+//    @Path("")
+//    @PUT
+//    public Response updateStudent(Student student) {
+//        Student updatedStudent = studentService.updateStudent(student);
+//        return Response.ok(updatedStudent).build();
+//    }
+//
+//    @Path("{id}")
+//    @DELETE
+//    public Response deleteStudent(@PathParam("id") Long id) {
+//        studentService.deleteStudent(id);
+//        return Response.ok().build();
+//    }
 }
