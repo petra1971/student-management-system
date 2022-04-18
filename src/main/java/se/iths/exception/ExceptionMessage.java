@@ -3,12 +3,12 @@ package se.iths.exception;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-public class StudentException {
+public class ExceptionMessage {
     public int code;
     public String status;
     public String message;
 
-    public StudentException(int code, String status, String message) {
+    public ExceptionMessage(int code, String status, String message) {
         this.code = code;
         this.status = status;
         this.message = message;
