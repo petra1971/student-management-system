@@ -2,7 +2,6 @@ package se.iths.rest;
 
 import se.iths.entity.Student;
 import se.iths.exception.ExceptionMessage;
-import se.iths.exception.SaveStudentException;
 import se.iths.service.StudentService;
 import se.iths.utils.JsonConverter;
 
@@ -24,13 +23,8 @@ public class StudentRest {
     @Path("")
     @POST
     public Response createStudent(Student student) {
-        try {
-            Student studentResult = studentService.createStudent(student);
-            return Response.ok(studentResult).build();
-        } catch (SaveStudentException e) {
-            System.out.println("Student could not be created " + e.toString());
-            return Response.status(404, "Student could not be created").build();
-        }
+        Student studentResult = studentService.createStudent(student);
+        return Response.ok(studentResult).build();
     }
 
     @Path("")

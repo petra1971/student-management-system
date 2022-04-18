@@ -22,10 +22,6 @@ public class StudentService {
     EntityManager entityManager;
 
     public Student createStudent(Student student) throws SaveStudentException {
-//        throw new WebApplicationException(Response.status(Response.Status.BAD_REQUEST)
-//                .entity("Felaktig indata")
-//                .type(MediaType.APPLICATION_JSON)
-//                .build());
         try {
             entityManager.persist(student);
             return student;
