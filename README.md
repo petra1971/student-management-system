@@ -3,6 +3,7 @@ This application is managing information about students.
 It's built by Petra Andréasson.
 
 End point descriptions
+
 CreateStudent:
 POST http://localhost:8080/student-management-system/api/v1/students
 Json body ex:
