@@ -41,7 +41,6 @@ Note! firstName, lastName and email are required.
 ModifyStudent:
 PATCH http://localhost:8080/student-management-system/api/v1/students/{id} 
 (replace {id} in the url with the id you are searching for)
-
 Note! Only the fields that are modified needs to be in the json body.
 Json body ex:
 {
