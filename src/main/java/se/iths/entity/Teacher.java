@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Student {
+public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -14,18 +14,20 @@ public class Student {
     private String firstName;
     @NotEmpty
     private String lastName;
-    @NotEmpty
     private String email;
     private String phoneNumber;
-    @ManyToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Subject> subjects = new ArrayList<>(); //many students to many subjects
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private List<Subject> subjects = new ArrayList<>();
 
-    public Student() {}
+    public Teacher() {
+    }
 
-    public Student(String firstName, String lastName, String email) {
+    public Teacher(String firstName, String lastName, String email, String phoneNumber, List<Subject> subjects) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.subjects = subjects;
     }
 
     public Long getId() {
