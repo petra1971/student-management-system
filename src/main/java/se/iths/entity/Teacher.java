@@ -30,6 +30,11 @@ public class Teacher {
         this.subjects = subjects;
     }
 
+    public void addSubject(Subject subject) { //Hjälpmetod som ser till att när ett subject läggs till så sätts en lärare, den här läraren
+        subjects.add(subject);
+        subject.setTeacher(this);
+    }
+
     public Long getId() {
         return id;
     }
@@ -68,9 +73,5 @@ public class Teacher {
 
     public List<Subject> getSubjects() {
         return subjects;
-    }
-
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
     }
 }
