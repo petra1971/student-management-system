@@ -13,10 +13,10 @@ public class JsonConverter {
         return gson.toJson(string);
     }
 
-    public static String convertExceptionToJson(Exception exception) {
+    public static String convertExceptionToJson(ExceptionMessage exceptionMessage) {
         GsonBuilder builder = new GsonBuilder();
         builder.setPrettyPrinting();
         Gson gson = builder.create();
-        return gson.toJson(exception);
+        return gson.toJson(exceptionMessage);
     }
 }
