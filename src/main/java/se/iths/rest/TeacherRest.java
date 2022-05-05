@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("teachers")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -28,5 +29,18 @@ public class TeacherRest {
                     .type(MediaType.APPLICATION_JSON).build());
         }
         return Response.ok(foundTeacher).build();
+    }
+
+    @Path("")
+    @GET
+    public Response getTeachers() {
+        List<Teacher> teachers = teacherService.getTeachers();
+        if (teachers.isEmpty()) {
+            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                    .entity(new ExceptionMessage(404, "NOT_FOUND", "No saved subjects"))
+                    .type(MediaType.APPLICATION_JSON)
+                    .build());
+        }
+        return Response.ok(teachers).build();
     }
 }

@@ -55,3 +55,17 @@ Json body ex:
 {
 	"email": "newemail@email.se"
 }
+
+Delete student by Id:
+DELETE http://localhost:8080/student-management-system/api/v1/students/{id}
+(replace {id} in the url with the id you are searching for)
+
+Get Subjects:
+GET http://localhost:8080/student-management-system/api/v1/subjects
+(replace {id} in the url with the id you are searching for)
+
+Get subject by Id:
+GET http://localhost:8080/student-management-system/api/v1/subjects/{id}
+(replace {id} in the url with the id you are searching for)
+
+Get Teachers:

@@ -26,7 +26,7 @@ public class SubjectRest {
         Subject foundSubject = subjectService.getSubjectById(id);
         if (foundSubject == null) {
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity(new ExceptionMessage(404, "NOT_FOUND", "Subject with "  + id + " was not found"))
+                    .entity(new ExceptionMessage(404, "NOT_FOUND", "Subject with id "  + id + " was not found"))
                     .type(MediaType.APPLICATION_JSON).build());
         }
         return Response.ok(foundSubject).build();
@@ -34,19 +34,19 @@ public class SubjectRest {
 
     @Path("")
     @GET
-    public List<Subject> getSubjects() {
-         return subjectService.getSubjects();
-    }
-
-//    public Response getStudents() {
-//        List<Student> students = studentService.getAllStudents();
-//        if (students.isEmpty()) {
-//            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-//                    .entity(new ExceptionMessage(404, "NOT_FOUND", "No saved students"))
-//                    .type(MediaType.APPLICATION_JSON)
-//                    .build());
-//        }
-//        return Response.ok(students).build();
+//    public List<Subject> getSubjects() {
+//         return subjectService.getSubjects();
 //    }
+
+    public Response getSubjects() {
+        List<Subject> subjects = subjectService.getSubjects();
+        if (subjects.isEmpty()) {
+            throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
+                    .entity(new ExceptionMessage(404, "NOT_FOUND", "No saved subjects"))
+                    .type(MediaType.APPLICATION_JSON)
+                    .build());
+        }
+        return Response.ok(subjects).build();
+    }
 }
 
