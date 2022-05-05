@@ -1,9 +1,9 @@
 package se.iths.exception;
 
 public class ExceptionMessage {
-    private int code;
-    private String status;
-    private String message;
+    public int code;
+    public String status;
+    public String message;
 
     public ExceptionMessage(String message) {
         this.message = message;

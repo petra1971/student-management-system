@@ -25,7 +25,7 @@ public class TeacherRest {
         Teacher foundTeacher = teacherService.getTeacherById(id);
         if (foundTeacher == null) {
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity(new ExceptionMessage(404, "NOT_FOUND", "Teacher with "  + id + " was not found"))
+                    .entity(new ExceptionMessage(404, "NOT_FOUND", "Teacher with id "  + id + " was not found"))
                     .type(MediaType.APPLICATION_JSON).build());
         }
         return Response.ok(foundTeacher).build();
@@ -37,7 +37,7 @@ public class TeacherRest {
         List<Teacher> teachers = teacherService.getTeachers();
         if (teachers.isEmpty()) {
             throw new WebApplicationException(Response.status(Response.Status.NOT_FOUND)
-                    .entity(new ExceptionMessage(404, "NOT_FOUND", "No saved subjects"))
+                    .entity(new ExceptionMessage(404, "NOT_FOUND", "No saved teachers"))
                     .type(MediaType.APPLICATION_JSON)
                     .build());
         }
