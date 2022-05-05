@@ -1,7 +1,9 @@
 package se.iths.entity;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,9 @@ public class Student {
     @NotEmpty
     private String email;
     private String phoneNumber;
-    @ManyToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private LocalDate createdAt;
+
+    @ManyToMany
     private List<Subject> subjects = new ArrayList<>(); //many students to many subjects
 
     public Student() {}
@@ -26,6 +30,26 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    //  Denna metod körs innan objektet skrivs till DB
+    @PrePersist
+    public void getCurrentDate() {
+        setCreatedAt(LocalDate.now());
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    //  Hjälpmetod som ser till att när ett subject läggs till studenten så läggs studenten till subjectets lista med studenter
+    public void addSubject(Subject subject) {
+        subjects.add(subject);
+        subject.getStudents().add(this);
     }
 
     public Long getId() {
@@ -64,6 +88,7 @@ public class Student {
         this.phoneNumber = phoneNumber;
     }
 
+    @JsonbTransient
     public List<Subject> getSubjects() {
         return subjects;
     }
