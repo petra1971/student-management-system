@@ -60,7 +60,7 @@ Delete student by Id:
 DELETE http://localhost:8080/student-management-system/api/v1/students/{id}
 (replace {id} in the url with the id you are searching for)
 
-Get Subjects:
+Get Subjects (with students and teacher):
 GET http://localhost:8080/student-management-system/api/v1/subjects
 (replace {id} in the url with the id you are searching for)
 
@@ -69,3 +69,9 @@ GET http://localhost:8080/student-management-system/api/v1/subjects/{id}
 (replace {id} in the url with the id you are searching for)
 
 Get Teachers:
+GET http://localhost:8080/student-management-system/api/v1/teachers
+(replace {id} in the url with the id you are searching for)
+
+Get teacher by Id:
+GET http://localhost:8080/student-management-system/api/v1/teachers/{id}
+(replace {id} in the url with the id you are searching for)
